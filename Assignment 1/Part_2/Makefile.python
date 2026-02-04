@@ -1,0 +1,15 @@
+# Makefile.python - creates an executable python_program from python_program.py
+
+# Default target when we run: make -B -f Makefile.python
+all: python_program
+
+# Rule: create executable python_program that runs python_program.py
+python_program: python_program.py
+	echo '#!/usr/bin/env python3' > python_program
+	cat python_program.py >> python_program
+	chmod +x python_program
+
+# Optional: remove the generated executable
+clean:
+	rm -f python_program
+
